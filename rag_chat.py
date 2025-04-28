@@ -22,17 +22,17 @@ split_docs = text_splitter.split_documents(documents=docs)
 
 embedder = GoogleGenerativeAIEmbeddings(
     model="models/embedding-001",
-    google_api_key=""  # Replace with your actual Gemini API key
+    google_api_key="AIzaSyBtNhKuv9YEUFx5e8YLkiC7gEJxQS1z_AY"  # Replace with your actual Gemini API key
 )
 
-vector_store = QdrantVectorStore.from_documents(
-    documents=[],
-    url="http://localhost:6333",
-    collection_name="learning_langchain2",
-    embedding=embedder
-)
+# vector_store = QdrantVectorStore.from_documents(
+#     documents=[],
+#     url="http://localhost:6333",
+#     collection_name="learning_langchain2",
+#     embedding=embedder
+# )
 
-vector_store.add_documents(documents = split_docs)
+# vector_store.add_documents(documents = split_docs)
 
 
 retriver = QdrantVectorStore.from_existing_collection(
